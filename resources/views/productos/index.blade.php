@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Lista de Productos</title>
 </head>
+
 <body>
+    @if (session('success'))
+        <div>{{ session('success') }}</div>
+    @endif
+
+    @if (session('error'))
+        <div>{{ session('error') }}</div>
+    @endif
     <h1>Productos Disponibles</h1>
+    <a href="{{ route('productos.create') }}">Registrar nuevo producto</a>
     <table>
         <thead>
             <tr>
@@ -16,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($productos as $producto)
+            @foreach ($productos as $producto)
                 <tr>
                     <th>{{ $producto->id }}</th>
                     <td>{{ $producto->nombre }}</td>
@@ -31,4 +41,5 @@
         </tbody>
     </table>
 </body>
+
 </html>
