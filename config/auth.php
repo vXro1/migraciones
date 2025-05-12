@@ -36,11 +36,18 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'web' => [ // <- ¡Este guard debe existir!
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'driver' => 'jwt', // <- este es para JWT
+            'provider' => 'users',
+        ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -64,11 +71,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
